@@ -1,0 +1,8 @@
+machine:
+  ruby:
+    version: 2.2.2
+deployment:
+  staging:
+    branch: heroku-deploy
+    heroku:
+      appname: lycent
