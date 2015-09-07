@@ -1,0 +1,78 @@
+
+      <%= render "users/user_sidebar" %>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><%= @url.url if @url %></h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-8">
+                  <%= render "layouts/chart" %>
+                </div>
+                <div class="col-lg-4">
+                  <%= render "layouts/notice_card", :color=>"yellow", :icon=>"support", :count=>"#{@url.hits.count}" %>
+                  <%= render "layouts/notice_card", :comment=>"New hits" %>
+                </div>
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Registered urls
+                        </div>
+
+                        <div class="panel-body">
+                          <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover" id="url_table">
+                              <% if @hits && !@hits.empty? %>
+                                  <thead>
+                                    <tr>
+                                      <th>S/N</th>
+                                      <th>Visit from</th>
+                                      <th>Ip address</th>
+                                      <th>Time of visit</th>
+                                      <th>Date</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <% count = 1; @hits.each do |hit| %>
+                                      <tr class="odd gradeX">
+                                          <td><%= count %></td>
+                                          <td><%=link_to hit.referrer, hit.referrer %></td>
+                                          <td><%= hit.ip_address %></td>
+                                          <td class="center"><%= "#{time_ago_in_words(hit.created_at, include_seconds: true)} ago" %></td>
+                                          <td class="center"><%= hit.created_at.strftime("%a, %d %b %y") %></td>
+                                      </tr>
+                                    <% count += 1; end %>
+                                  <% else %>
+                                    <tr>
+                                      This link hasn't been visited yet
+                                    </tr>
+                                  <% end %>
+                              </tbody>
+                            </table>
+                          </div><!-- datatable-->
+                    </div>
+                    <!-- /.panel -->
+
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <script>
+    $('#url_table').DataTable({
+            responsive: true
+    });
+    $(document).ready(function() {
+
+    });
+    </script>

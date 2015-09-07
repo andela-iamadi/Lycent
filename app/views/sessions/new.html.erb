@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="login-panel set-to-top">
+        <p class="well lead text-center">
+          Using Lycent url shortener service, you can create shortened urls on the fly for no cost at all! Sign in or sign up below to get quantitative analysis of your site(s) visits
+        </p>
+      </div>
+
+            <div class="col-md-4 col-md-offset-2">
+                <div class="login-panel panel panel-default set-to-top">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <%= form_for(:session, url: login_path, html: { role: "form" }) do |f|%>
+                            <fieldset>
+                                <div class="form-group">
+                                  <%= f.text_field :email,  { :class => "form-control", :placeholder => "email" } %>
+
+                                </div>
+                                <div class="form-group">
+                                  <%= f.password_field :password,  { :class => "form-control", :placeholder => "password" } %>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <%= f.check_box :remember %>
+                                        Remember me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <%= f.submit "Login", :class => "btn btn-lg btn-success btn-block" %>
+                            </fieldset>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="login-panel panel panel-default set-to-top">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Or sign up</h3>
+                    </div>
+                    <%= render "users/new_user_form" %>
+                </div>
+            </div>
+
+        </div><!-- col-lg-12-->
+    </div>
+</div>

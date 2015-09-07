@@ -1,0 +1,18 @@
+<% @url = Url.new %>
+
+<div class="row" >
+  <div class="well col-lg-12">
+    <%= form_for @url, html: { :role => "form" } do |f| %>
+       <div class="col-lg-10 lead form-group no-bottom">
+         <%= f.label :url, "Shorten a url:", :class=>"pull-left text-right col-md-3" %>
+         <div class="form-group input-group">
+           <span class="input-group-addon">http://</span>
+           <%= f.text_field :url, { :class => "form-control", :placeholder => "www.example.com" } %>
+         </div>
+       </div>
+       <%=f.submit "Shorten", :class=>"btn btn-md btn-success left" do %>
+         <i class="fa fa-send"></i>&nbsp;Shorten
+       <% end %>
+   <% end %>
+  </div>
+</div>

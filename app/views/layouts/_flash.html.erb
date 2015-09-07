@@ -1,0 +1,6 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert fade in alert-<%= message_type %> container">
+    <button class="close" data-dismiss="alert">&times;</button>
+  	<div class="show-material-message" data-message="<%= message %>"><%= message.html_safe || message %></div>
+	</div>
+<% end %>

@@ -1,0 +1,26 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$green-color: #5cb85c;
+.center {
+  text-align: center;
+}
+.green-bg {
+  background-color: $green-color;
+}
+.green-font {
+  color: $green-color;
+}
+.set-to-top {
+  margin-top: 0 !important;
+}
+.no-bottom {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+.no-margin-top {
+  margin-top: 0 !important;
+}

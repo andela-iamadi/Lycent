@@ -1,0 +1,51 @@
+
+<div class="container">
+ </nav>
+   <!-- The justified navigation menu is meant for single line per list item.
+        Multiple lines will require custom code not provided by Bootstrap. -->
+   <!-- Jumbotron -->
+   <div class="jumbotron center">
+     <h1>Shorten a URL</h1>
+
+      <p class="lead">
+        Using Lycent url shortener service, you can create shortened urls on the fly for no cost at all! To shorten a url, type it in and click the button below
+      </p>
+
+     <%= form_for @url, html: { :role => "form" } do |f| %>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="form-group input-group">
+            <span class="input-group-addon">http://</span>
+            <%= f.text_field :url, { :class => "form-control", :placeholder => "www.example.com" } %>
+          </div>
+        </div>
+      </div>
+      <%=f.submit "Shorten", :class=>"btn btn-lg btn-success" %>
+    <% end %>
+   </div>
+
+   <!-- Example row of columns -->
+   <div class="row">
+     <div class="col-lg-4 center">
+       <h1><i class="fa fa-bicycle fa-3x green-font"></i></h1>
+       <h2>Faster, simple, service</h2>
+       <p class="text-danger">Our servers are optimized or speedy translation to minimize any lag from our end</p>
+     </div>
+     <div class="col-lg-4 center">
+       <h1><i class="fa fa-cloud-download fa-3x green-font"></i></h1>
+       <h2>Dependable translation</h2>
+       <p class="text-success">Providing optimum service is key in website proxy delivery. At Lycent, we are focused on providing you the fastest, link shortener service</p>
+    </div>
+     <div class="col-lg-4 center">
+       <h1><i class="fa fa-line-chart fa-3x green-font"></i></h1>
+       <h2>Free but value-driven</h2>
+       <p class="text-danger">Our servers are optimized or speedy translation to minimize any lag from our end</p>
+     </div>
+   </div>
+
+   <!-- Site footer -->
+   <footer class="footer">
+     <p>&copy; Company 2014</p>
+   </footer>
+
+ </div> <!-- /container -->
