@@ -48,12 +48,15 @@ body {
   padding-top: 10px;
   color: #eee;
 }
-.nav li a, .navbar-brand {
+.header-nav li a, .header-nav.navbar-brand {
   color: #eee !important;
-  &:hover {
+  &:hover, &:active, &:focus {
     background-color: #eee !important;
     color: $green-color !important;
   }
+}
+.header-nav li ul li a {
+  color: #333 !important;
 }
 .pad-5 {
   padding-top: 5px;
@@ -71,4 +74,21 @@ body {
   float: left;
   position: relative;
   margin: 0 10px;
+}
+table {
+  border-collapse:collapse;
+
+}
+table td {
+  border:solid 1px #fab;
+  // min-width:20px;
+  word-wrap:break-word;
+}
+@media screen and (max-width: 1000px) {
+  table { table-layout: fixed; }
+  table td { max-width: 300px; }
+}
+@media screen and (min-width: 1001px) {
+  table { table-layout: relative; }
+  table td { max-width: 300px; }
 }
