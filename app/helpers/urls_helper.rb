@@ -31,7 +31,7 @@ module UrlsHelper
     def save_hit_details url
       hit = url.hits.new
       hit.ip_address = request.remote_ip
-      hit.referrer = request.env["HTTP_REFERER"] || 'none'
+      hit.referrer = session[:referrer] || ""
       hit.save
     end
 

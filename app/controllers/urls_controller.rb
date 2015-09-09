@@ -1,6 +1,6 @@
 class UrlsController < ApplicationController
   include UrlsHelper
-  
+
   before_filter :authorize, :except => [:router, :create, :new]
 
   def index
@@ -16,7 +16,6 @@ class UrlsController < ApplicationController
     if url
       user_id = current_user.nil? ? nil : current_user.id
       @url = Url.create(url: url, user_id: user_id)
-      @url.user_id = @current_user.nil? ? nil : @current_user.id
       if generate_shortened_path
         url = full_url(@url.shortened_path)
         flash[:success] = "Shortened url: <a href=\"#{url}\">#{url}</a>"
@@ -38,7 +37,6 @@ class UrlsController < ApplicationController
   end
 
   def edit
-
     add_breadcrumb :edit, edit_url_path(@url)
   end
 
