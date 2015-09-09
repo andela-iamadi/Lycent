@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def store_referrer
     referer = request.referer.presence
     if referer && !referer.start_with?(Rails.application.secrets.app_url)
-      session[:referer] ||= referer
+      session[:referrer] ||= referer
     end
   end
 end
