@@ -11,9 +11,10 @@
      <%= form_for @url, html: { :role => "form" } do |f| %>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-          <div class="form-group input-group">
-            <span class="input-group-addon">http://</span>
-            <%= f.text_field :url, { :class => "form-control", :placeholder => "www.example.com" } %>
+
+          <div class="form-group input-group col-lg-12">
+            <!-- <span class="input-group-addon">http://</span> -->
+            <%= f.text_field :url, { :class => "form-control col-lg-12", :placeholder => "http://www.example.com" } %>
           </div>
         </div>
       </div>
@@ -26,17 +27,17 @@
      <div class="col-lg-4 center">
        <h1><i class="fa fa-bicycle fa-3x green-font"></i></h1>
        <h2>Faster, simple, service</h2>
-       <p class="text-danger">Our servers are optimized or speedy translation to minimize any lag from our end</p>
+       <p class="">Our servers are optimized or speedy translation to minimize any lag from our end</p>
      </div>
      <div class="col-lg-4 center">
        <h1><i class="fa fa-cloud-download fa-3x green-font"></i></h1>
        <h2>Dependable translation</h2>
-       <p class="text-success">Providing optimum service is key in website proxy delivery. At Lycent, we are focused on providing you the fastest, link shortener service</p>
+       <p class="">Providing optimum service is key in website proxy delivery. At Lycent, we are focused on providing you the fastest, link shortener service</p>
     </div>
      <div class="col-lg-4 center">
        <h1><i class="fa fa-line-chart fa-3x green-font"></i></h1>
        <h2>Free but value-driven</h2>
-       <p class="text-danger">Our servers are optimized or speedy translation to minimize any lag from our end</p>
+       <p class="">Our servers are optimized or speedy translation to minimize any lag from our end</p>
      </div>
    </div>
 

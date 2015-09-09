@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $green-color: #5cb85c;
+body {
+  color: #333;
+}
 .center {
   text-align: center;
 }
@@ -24,12 +27,15 @@ $green-color: #5cb85c;
 .no-margin-top {
   margin-top: 0 !important;
 }
+.no-padding-top {
+  padding-top: 0 !important;
+}
 .bottom-pad {
   padding-bottom: 1px;
-  position: fixed;
-  bottom:0;
-  left:0;
-  right:0
+  // position: fixed;
+  // bottom:0;
+  // left:0;
+  // right:0
 }
 .header{
   position:fixed;
@@ -40,4 +46,29 @@ $green-color: #5cb85c;
 .footer {
   line-height: 10px;
   padding-top: 10px;
+  color: #eee;
+}
+.nav li a, .navbar-brand {
+  color: #eee !important;
+  &:hover {
+    background-color: #eee !important;
+    color: $green-color !important;
+  }
+}
+.pad-5 {
+  padding-top: 5px;
+}
+.header-text {
+  padding: 20px 0px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 35px;
+}
+
+.img-logo {
+  top: -45px !important;
+  max-height: 100px !important;
+  float: left;
+  position: relative;
+  margin: 0 10px;
 }
