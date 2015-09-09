@@ -1,5 +1,5 @@
 class UrlsController < ApplicationController
-  before_filter :authorize, :except => [:router]
+  before_filter :authorize, :except => [:router, :create, :new]
 
   def index
     add_breadcrumb :index
@@ -12,7 +12,7 @@ class UrlsController < ApplicationController
   def create
     url = finnesse_url
     if url
-      user_id = @current_user.nil? ? nil : @current_user.id
+      user_id = current_user.nil? ? nil : current_user.id
       @url = Url.create(url: url, user_id: user_id)
       @url.user_id = @current_user.nil? ? nil : @current_user.id
       if generate_shortened_path

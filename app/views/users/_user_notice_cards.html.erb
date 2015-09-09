@@ -1,0 +1,9 @@
+<div class="col-lg-4">
+  <%= render "layouts/notice_card", :color=>"yellow", :icon=>"support", :count=>"#{@current_user.hits.count}", :comment=>"Referrals from other sites" %>
+</div>
+<div class="col-lg-4">
+  <%= render "layouts/notice_card", :color=>"primary", :icon=>"tasks", :count=>"#{@current_user.hits.count}", :comment=>"Total visits" %>
+</div>
+<div class="col-lg-4">
+  <%= render "layouts/notice_card", :color=>"green", :icon=>"send", :count=>"#{@urls.count}", :comment=>"Registered urls" %>
+</div>
