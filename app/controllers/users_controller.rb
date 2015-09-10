@@ -22,9 +22,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    puts "gets to users#show"
     @user_urls = @current_user.urls || {}
     @total_hits = 0
     @user_urls.collect{ |url| @total_hits += (url.hits_count || 0) }
+    puts "gets all params from users#show"
   end
 
   private
