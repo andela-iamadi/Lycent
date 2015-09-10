@@ -1,5 +1,6 @@
 <%= render "users/user_sidebar" %>
 
+<% puts "gets to user page " %>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -9,7 +10,9 @@
     </div>
     <!-- /.row -->
     <div class="col-lg-12">
+      <% puts "starts rendering user cards in user page " %>
       <%= render "user_notice_cards" %>
+      <% puts "finishes rendering user cards in user page " %>
     </div>
 
     <div class="row">
@@ -18,11 +21,13 @@
                 <div class="panel-heading">
                     Registered urls
                 </div>
+                <% puts "starts rendering url table in user page " %>
                 <%= render "users/user_urls_table" %>
+                <% puts "finishes rendering url table in user page " %>
             </div>
             <!-- /.panel -->
-            <%= render "layouts/new_url" if @user_urls.empty? %>
-        </div>
+            <%= render "layouts/new_url" if !@user_urls && @user_urls.empty? %>
+        </div>s
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
