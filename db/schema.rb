@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910151606) do
+ActiveRecord::Schema.define(version: 20150910171102) do
 
   create_table "hits", force: :cascade do |t|
     t.string   "ip_address"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20150910151606) do
     t.string   "url"
     t.string   "shortened_path"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "hits_count"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "hits_count",     default: 0
   end
 
   add_index "urls", ["shortened_path"], name: "index_urls_on_shortened_path"
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20150910151606) do
     t.string   "last_name"
     t.string   "email"
     t.string   "avatar"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "username"
     t.string   "password_digest"
-    t.integer  "urls_count"
+    t.integer  "urls_count",      default: 0
   end
 
 end
