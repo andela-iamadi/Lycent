@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @urls = @current_user.urls
+    @user_urls = @current_user.urls.includes(:hits)
+    @total_hits = 0
+    @user_urls.collect{ |url| @total_hits += (url.hits_count || 0) }
   end
 
   private

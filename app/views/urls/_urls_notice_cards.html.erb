@@ -1,2 +1,2 @@
-<%= render "layouts/notice_card", :color=>"yellow", :icon=>"support", :count=>"#{@url.hits.count}" %>
-<%= render "layouts/notice_card", :comment=>"New hits" %>
+<%= render "layouts/notice_card", :color=>"yellow", :icon=>"support", :count=>"#{@url_hits.size || 0}" %>
+<%= render "layouts/notice_card", :comment=>"New hits", :count=>"#{@url_hits.size || 0}" %>

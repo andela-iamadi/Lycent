@@ -1,22 +1,24 @@
 <%= render :layout => "layouts/table", :locals => { :table_id => "url_table" } do %>
-<% if @hits && !@hits.empty? %>
+<% if @url_hits && !@url_hits.empty? %>
     <thead>
       <tr>
         <th>S/N</th>
         <th>Visit from</th>
         <th>Ip address</th>
-        <th>Time of visit</th>
-        <th>Date</th>
+        <th>Location</th>
+        <th>Zip code</th>
+        <th>Time/Date</th>
       </tr>
     </thead>
     <tbody>
-      <% count = 1; @hits.each do |hit| %>
+      <% count = 1; @url_hits.each do |hit| %>
         <tr class="odd gradeX">
             <td><%= count %></td>
             <td><%=link_to hit.referrer, hit.referrer %></td>
             <td><%= hit.ip_address %></td>
-            <td class="center"><%= "#{time_ago_in_words(hit.created_at, include_seconds: true)} ago" %></td>
-            <td class="center"><%= hit.created_at.strftime("%a, %d %b %y") %></td>
+            <td><%= "#{hit.city}, #{hit.country}" %></td>
+            <td class="center"><%= "#{hit.zipcode}" %></td>
+            <td class="center"><%= "#{time_ago_in_words(hit.created_at, include_seconds: true)} ago\n#{hit.created_at.strftime("%a, %d %b %y")}" %></td>
         </tr>
       <% count += 1; end %>
     <% else %>
