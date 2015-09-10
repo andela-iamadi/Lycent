@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_filter :store_referrer
   include SessionsHelper
 
   helper_method :current_user
@@ -15,6 +16,13 @@ class ApplicationController < ActionController::Base
     if !current_user
       flash[:danger] = "Ummm.. you may need to log in at this point"
       redirect_to login_path
+    end
+  end
+
+  def store_referrer
+    referer = request.referer.presence
+    if referer && !referer.start_with?(Rails.application.secrets.app_url)
+      session[:referrer] ||= referer
     end
   end
 end
