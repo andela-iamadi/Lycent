@@ -32,6 +32,9 @@ module UrlsHelper
       hit = url.hits.new
       hit.ip_address = request.remote_ip
       hit.referrer = session[:referrer] || ""
+      hit.city = request.location.data["city"]
+      hit.zipcode = request.location.data["zipcode"]
+      hit.country = request.location.data["country_name"]
       hit.save
     end
 

@@ -11,10 +11,6 @@
           <div class="col-lg-8">
             <%= render :layout => "layouts/chart", :locals => {x_key: "days", y_keys: "hits", y_labels: "impact"} do %>
               <% @url_hits.each do %>
-              { year: '2008', value: 20 },
-              { year: '2009', value: 10 },
-              { year: '2010', value: 5 },
-              { year: '2011', value: 5 },
               { year: '2012', value: 20 }
               <% end %>
             <% end %>
