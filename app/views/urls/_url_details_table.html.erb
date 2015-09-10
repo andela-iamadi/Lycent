@@ -1,5 +1,5 @@
 <%= render :layout => "layouts/table", :locals => { :table_id => "url_table" } do %>
-<% if @hits && !@hits.empty? %>
+<% if @url_hits && !@url_hits.empty? %>
     <thead>
       <tr>
         <th>S/N</th>
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% count = 1; @hits.each do |hit| %>
+      <% count = 1; @url_hits.each do |hit| %>
         <tr class="odd gradeX">
             <td><%= count %></td>
             <td><%=link_to hit.referrer, hit.referrer %></td>

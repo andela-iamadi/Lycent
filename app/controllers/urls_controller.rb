@@ -14,10 +14,11 @@ class UrlsController < ApplicationController
   def create
     url = finnesse_url(url_params[:url])
     if url
-      user_id = current_user.nil? ? nil : current_user.id
+      user_id = current_user.nil? ? response.remote_ip : current_user.id
       @url = Url.create(url: url, user_id: user_id)
       if generate_shortened_path
         url = full_url(@url.shortened_path)
+        @current_user.reload
         flash[:success] = "Shortened url: <a href=\"#{url}\">#{url}</a>"
       else
         flash[:danger] = "Ummm...seems your url #{@url.errors.messages[:url][0]}. Cross-check, then try again."
@@ -29,9 +30,9 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @url = Url.find_by(id: params[:id]) || nil
+    @url = Url.includes(:hits).find_by(id: params[:id]) || nil
     if @url
-      @hits = @url.hits
+      @url_hits = @url.hits
       add_breadcrumb :show, url_path(@url)
     end
   end
