@@ -1,6 +1,6 @@
 class Url < ActiveRecord::Base
   has_many :hits
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   VALID_URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~\/#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~=#?&]*)/
 

@@ -9,7 +9,11 @@
       <!-- /.row -->
       <div class="row">
           <div class="col-lg-8">
-            <%= render "layouts/chart" %>
+            <%= render :layout => "layouts/chart", :locals => {x_key: "days", y_keys: "hits", y_labels: "impact"} do %>
+              <% @url_hits.each do %>
+              { year: '2012', value: 20 }
+              <% end %>
+            <% end %>
           </div>
           <div class="col-lg-4">
             <%= render "urls_notice_cards" %>
