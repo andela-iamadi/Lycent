@@ -11,12 +11,13 @@
             </tr>
           </thead>
           <tbody>
+            <% puts "got to the beginning of table rendering. host_url: #{host_url}" %>
             <% count = 1; @user_urls.each do |url| %>
               <tr class="odd gradeX">
                   <td><%= count %></td>
                   <td><%=link_to url.url, url.url %></td>
-                  <td><%=link_to "#{host_url}/#{url.shortened_path}", url_path(url) %></td>
-                  <td class="center"><%= url.hits_count %></td>
+                  <td><%=link_to "#{host_url || ""}/#{url.shortened_path}", url_path(url) %></td>
+                  <td class="center"><%= url.hits_count || 0 %></td>
                   <td class="center"><%= url.created_at.strftime("%a, %d %b %y") %></td>
               </tr>
             <% count += 1; end %>
@@ -25,5 +26,7 @@
               You haven't yet registered any url
             </tr>
           <% end %>
+          <% puts "got to the end of table rendering" %>
+
       </tbody>
     <% end %>
