@@ -18,7 +18,7 @@ class UrlsController < ApplicationController
     else
       flash[:danger] = "Please type in a url in the textbox below"
     end
-    # redirect_to request.referrer
+    redirect_to request.referrer
   end
 
   def show
@@ -63,17 +63,21 @@ class UrlsController < ApplicationController
   def save_success
     url = full_url(@url.shortened_path)
     @current_user.reload if @current_user
-    flash[:success] = "Shortened url: <a href=\"#{url}\">#{url}</a>"
     respond_to do |format|
-      format.html { redirect_to :shorten }
+      format.html do
+        flash[:success] = "Shortened url: <a href=\"#{url}\">#{url}</a>"
+        redirect_to :shorten if !@current_user and return
+      end
       format.js # {render 'create.js'}
     end
   end
 
   def save_error
-    flash[:danger] = "Ummm...seems your url #{@url.errors.messages[:url][0]}. Cross-check, then try again."
     respond_to do |format|
-      format.html { }
+      format.html do
+        flash[:danger] = "Ummm...seems your url #{@url.errors.messages[:url][0]}. Cross-check, then try again."
+        redirect_to :shorten if !@current_user and return 
+      end
       format.js
     end
   end

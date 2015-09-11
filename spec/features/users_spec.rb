@@ -40,7 +40,6 @@ RSpec.feature "Users", type: :feature do
       find(".navbar-form-submit").click
 
       expect(page).to have_css(".alert-success", text: "Shortened url:")
-
       expect(page).to have_css("#urls_table")
       expect(page).to have_content("www.facebook.com/testing")
     end
