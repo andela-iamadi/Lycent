@@ -1,0 +1,18 @@
+<% new_url %>
+<div class="row" >
+  <div class="well col-lg-12">
+    <%= form_for @new_url, html: { :role => "form" }, remote: true do |f| %>
+       <div class="lead form-group no-bottom">
+         <div class="form-group input-group">
+           <span class="input-group-addon"><i class="fa fa-bolt"></i></span>
+           <%= f.text_field :url, { :class => "form-control input-lg", :placeholder => "Paste long url here" } %>
+           <span class="input-group-btn">
+             <%= button_tag(type: 'submit',  class: "btn btn-lg btn-default navbar-form-submit", id: 'new_url' ) do %>
+               <i class="fa fa-send"></i>&nbsp;Shorten
+             <% end %>
+           </span>
+         </div>
+       </div>
+   <% end %>
+  </div>
+</div>

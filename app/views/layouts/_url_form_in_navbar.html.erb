@@ -1,0 +1,11 @@
+<% new_url %>
+<%= form_for @new_url, html: { :class=>"navbar-form", :role=>"form" } do |f| %>
+  <div class="input-group">
+    <%= f.text_field :url, { :class => "form-control navbar-form-url", :placeholder => "www.longurl.com..." } %>
+    <span class="input-group-btn">
+      <%= button_tag(type: 'submit', class: "btn  btn-default navbar-form-submit", id: 'new_url')  do %>
+        <i class="fa fa-send"></i>
+      <% end %>
+    </span>
+  </div>
+<% end %>

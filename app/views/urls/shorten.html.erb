@@ -1,0 +1,24 @@
+
+<div class="container">
+
+   <div class="jumbo center">
+    <!-- nav new url form -->
+      <%= render "layouts/new_url_large" %>
+    <!-- nav new url form -->
+   </div>
+
+   <!-- Example row of columns -->
+   <div class="row">
+     <div class="col-lg-10 col-lg-offset-1">
+       <ul id="shortened-url-list" class="shortened-list-menu">
+         <p class="separator text-center"><span>Recently shortened links</span></p>
+         <%if @urls %>
+           <% @urls.each do |url| %>
+            <%= render "urls/url", :url => url  %>
+           <% end %>
+         <% end %>
+       </ul>
+     </div>
+   </div>
+
+ </div> <!-- /container -->

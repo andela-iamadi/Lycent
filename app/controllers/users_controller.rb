@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome #{user_params[:first_name]} to lycent. Start shortening!"
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       flash[:danger] = "One or more required fields are missing"
       redirect_to login_path

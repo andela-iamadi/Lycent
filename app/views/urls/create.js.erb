@@ -1,0 +1,2 @@
+$("#shortened-url-list").prepend('<%=j render "urls/url", :url=>@url %>');
+$("#url_url").val("<%= (((host_url || "") + '/' + @url.shortened_path) || "") %>");
