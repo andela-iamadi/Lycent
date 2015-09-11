@@ -1,0 +1,17 @@
+<% url ||= {} %>
+<li class="url-item">
+<div class="row">
+  <div class="col-md-1 side-img">
+    <i class="fa fa-link"></i>
+  </div>
+   <div class="col-md-10">
+     <%= link_to  "#{host_url}/#{url.shortened_path}", "#{host_url}/#{url.shortened_path}", :class=>"main-link clearfix" %>
+     <%= link_to  "#{url.url}", "#{url.url}", :class=> "article-title smaller" %>
+   </div>
+   <div class="col-md-1">
+     <%= link_to login_path do %>
+       <i class="fa fa-bar-chart"></i>
+     <% end %>
+   </div>
+</div>
+</li>

@@ -39,7 +39,7 @@ module UrlsHelper
     end
 
     def full_url path
-      url = "{#{host_url}}/#{@url.shortened_path}"
+      url = "#{host_url}/#{@url.shortened_path}"
     end
 
     def host_url

@@ -1,8 +1,7 @@
-<% @url = Url.new %>
-
+<% new_url %>
 <div class="row" >
   <div class="well col-lg-12">
-    <%= form_for @url, html: { :role => "form" } do |f| %>
+    <%= form_for @new_url, html: { :role => "form" } do |f| %>
        <div class="col-lg-10 lead form-group no-bottom">
          <%= f.label :url, "Shorten a url:", :class=>"pull-left text-right col-md-3" %>
          <div class="form-group input-group">
