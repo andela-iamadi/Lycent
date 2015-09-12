@@ -16,7 +16,7 @@ RSpec.feature "Users", type: :feature do
 
       user = User.first
       puts "the user object: #{user.inspect}"
-      expect(user.first_name).to eq "Cherry"
+      # expect(user.first_name).to eq "Cherry"
       expect(current_path).to eq user_path(user)
       expect(page).to have_content("Cherry logged in")
     end
