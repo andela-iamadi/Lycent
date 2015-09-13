@@ -1,6 +1,6 @@
 <%= render :layout => "layouts/table", :locals => { :table_id => "urls_table" } do %>
 
-      <% if @user_urls && !@user_urls.empty? && false %>
+      <% if @user_urls && !@user_urls.empty? %>
           <thead>
             <tr>
               <th>S/N</th>
@@ -11,12 +11,12 @@
             </tr>
           </thead>
           <tbody>
-            <% puts "got to the beginning of table rendering. host_url: #{host_url}" %>
+            <% puts "got to the beginning of table rendering. host_url: " %>
             <% count = 1; @user_urls.each do |url| %>
               <tr class="odd gradeX">
                   <td><%= count %></td>
                   <td><%=link_to url.url, url.url %></td>
-                  <td><%=link_to "#{host_url || ""}/#{url.shortened_path}", url_path(url) %></td>
+                  <td><%=link_to "check", url_path(url) %></td>
                   <td class="center"><%= (url.hits_count || 0) %></td>
                   <td class="center"><%= url.created_at.strftime("%a, %d %b %y") %></td>
               </tr>
