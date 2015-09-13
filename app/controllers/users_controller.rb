@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def show
     puts "gets to users#show"
-    @host_url = host_url || ""
+    @host_url = "localhost.4000.com"
     @user_urls = @current_user.urls || {}
     @total_hits = 0
     @user_urls.each { |url| @total_hits += (url.hits_count || 0) } if @user_urls && !@user_urls.empty?
