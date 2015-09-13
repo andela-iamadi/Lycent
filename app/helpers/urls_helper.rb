@@ -38,11 +38,8 @@ module UrlsHelper
       hit.save
     end
 
-    def full_url path
-      url = "#{host_url}/#{@url.shortened_path}"
+    def full_url url
+      Rails.env.production? ? "#{Rails.application.secrets.app_url}/#{url.shortened_path}" : "#{Rails.application.secrets.app_url}:#{request.port}/#{url.shortened_path}"
     end
 
-    def host_url
-      Rails.env.production? ? "#{Rails.application.secrets.app_url}/#{@url.shortened_path}" : "#{Rails.application.secrets.app_url}:#{request.port}"
-    end
 end

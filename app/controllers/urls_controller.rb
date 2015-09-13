@@ -61,7 +61,7 @@ class UrlsController < ApplicationController
   end
 
   def save_success
-    url = full_url(@url.shortened_path)
+    url = full_url(@url)
     @current_user.reload if @current_user
     respond_to do |format|
       format.html do
@@ -76,7 +76,7 @@ class UrlsController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:danger] = "Ummm...seems your url #{@url.errors.messages[:url][0]}. Cross-check, then try again."
-        redirect_to :shorten if !@current_user and return 
+        redirect_to :shorten if !@current_user and return
       end
       format.js
     end
